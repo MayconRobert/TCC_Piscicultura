@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "MenuTanque";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["Msg"] != null)
+{
+    if (TempData["Msg"].ToString().IndexOf("sucesso") > 0)
+    {
+        <div id="Esconder" style="text-align:center; background-color: aquamarine"> @TempData["Msg"] </div>
+    }
+    else
+    {
+        <div id="Esconder" style="text-align:center; background-color: orangered"> @TempData["Msg"] </div>
+    }
+}
+@section Container{
+
+<div class="background-submenu">
+
+    <div class="panel panel-default">
+
+        <div class="main-title">
+
+            Tanques
+
+        </div>
+
+        <div class="panel-body">
+            <button type="button" class="btn btn-success btn-xl" onclick="location.href='@Url.Action("EscolherPiscicultura","Tanque")' ">
+                <i class="fas fa-list-ul fa-2x"></i>
+                <br />
+                Lista
+            </button>
+            <button type="button" class="btn btn-danger btn-xl" onclick="location.href='@Url.Action("CadastraTanque","Tanque")' ">
+                <i class="fas fa-plus fa-2x"></i>
+                <br />
+                Cadastrar
+            </button>
+        </div>
+    </div>
+</div>
+
+
+    <style>
+        .btn-xl {
+            width: 400px;
+            height: 450px;
+            padding: 10px 16px;
+            border-radius: 35px;
+            font-size: 24px;
+            line-height: 1.33;
+            margin-left: 350px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+}
+@section Script{
+    <script>
+        $(document).ready(function () {
+            $('#Esconder').delay(5000).fadeOut();
+        });
+    </script>
+
+}
+
+

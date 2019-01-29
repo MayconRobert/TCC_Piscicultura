@@ -1,0 +1,171 @@
+﻿@model Site_piscicultura.Models.ModeloTarefas
+
+@{
+    ViewBag.Title = "Tarefas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["Msg"] != null)
+{
+    if (TempData["Msg"].ToString().IndexOf("sucesso") > 0)
+    {
+        <div id="Esconder" style="text-align:center; background-color: aquamarine"> @TempData["Msg"] </div>
+    }
+    else
+    {
+        <div id="Esconder" style="text-align:center; background-color: orangered"> @TempData["Msg"] </div>
+    }
+}
+
+
+
+@section Script{
+    <link href='../../Content/fullcalendar.min.css' rel='stylesheet' />
+    <link href='../../Content/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <link href="../../Content/sweetalert2.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="../../Scripts/fullcalendar.min.js"></script>
+    <script src="../../Locales/locale-all.js"></script>
+    <script src="../../Scripts/sweetalert2.all.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#Esconder').delay(5000).fadeOut();
+        });
+    </script>
+
+    <!--CARREGA O CALENDÁRIO NA PÁGINA-->
+    <script>
+
+        //Get current Date
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+
+        //Load Calendar
+        $(document).ready(function () {
+
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'listDay,listWeek,month'
+                },
+
+                // customize the button names,
+                // otherwise they'd all just say "list"
+                views: {
+                    listDay: { buttonText: 'Dia' },
+                    listWeek: { buttonText: 'Semana' }
+                },
+
+
+                defaultView: 'month',
+                defaultDate: today,
+                locale: 'pt-br',
+                navLinks: true, // can click day/week names to navigate views
+                editable: true,
+                selectable: true,
+                selectHelper: true,
+                displayEventTime: false,
+                eventLimit: true, // allow "more" link when too many events
+
+                //Create events when clicking
+                select: function (start, end) {
+
+                    var eventData, title;
+
+                    title = swal({
+
+                        title: 'Nome da Tarefa:',
+                        input: 'text',
+                        inputPlaceholder: 'Insira o nome da Tarefa',
+
+                    }).then(function (title) {
+
+                        title = Object.values(title)
+
+                        if (title) {
+
+                            eventData = {
+                                title: title,
+                                start: start,
+                                end: end
+                            };
+
+                            $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+                        }
+                    })
+
+                    $('#calendar').fullCalendar('unselect');
+
+                },
+
+                //Mostra o evento criado
+                eventClick: function (event) {
+
+                    if (event.title) {
+                        console.log(event.title),
+                            swal(event.title);
+                    };
+                },
+
+
+                // Traz os eventos do Banco de Dados
+                events:
+
+                {
+                    url: '../WebService1.asmx/ListarTarefas',
+                    type: 'POST',
+                    error: function () {
+                        alert('Ocorreu um erro ao retornar as Tarefas. Por favor, entre em contato conosco.');
+                    },
+                    color: 'blue',   // a non-ajax option
+                    textColor: 'white' // a non-ajax option
+                }
+
+
+            });
+
+        });
+
+
+    </script>
+
+
+}
+
+
+
+@section Container{
+
+
+    <div class="panel panel-default">
+
+        <div class="main-title">
+            Tarefas
+        </div>
+        <div class="panel-body" style="margin-top:25px">
+            <div id='calendar'></div>
+        </div>
+       
+    </div>
+
+
+}
+
+
+
+

@@ -1,0 +1,457 @@
+﻿@using Site_piscicultura.Models
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Container{
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="../../Content/sweetalert2.min.css" rel="stylesheet" />
+
+    <script src="../../Scripts/sweetalert2.all.min.js"></script>
+    
+
+    <div class="culmn">
+
+    <!--Home Sections-->
+
+    <section id="hello" class="home img-bg">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="main_home">
+                    <div class="home_text">
+                        <h1 class="text-white">SOMOS<br />PISCIUM CULTURE</h1>
+                    </div>
+                </div>
+            </div><!--End off row-->
+        </div><!--End off container -->
+    </section> <!--End off Home Sections-->
+    <!--About us Sections-->
+    <section id="about" class="about roomy-100">
+        <div class="container">
+            <div class="row">
+                <div class="main_about">
+                    <div class="col-md-7">
+                        <div class="about_content">
+                            <h2>SOBRE NÓS</h2>
+                            <div class="separator_auto"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="about_accordion wow fadeIn">
+                            <div id="faq_main_content" class="faq_main_content">
+                                <h6><i class="fa fa-angle-right"></i>NOSSA HISTÓRIA</h6><!-- Start accordion item-1 -->
+                                <div>
+                                    <div class="content">
+                                        <p>
+                                            Tudo começou como um Trabalho de Conclusão de Curso do nosso Ensino Técnico.
+                                            Onde após longas conversas sobre o que fazer, encontramos algo que todos gostariam
+                                            de fazer. E assim surgiu o Piscium Culture, o mais novo sistema de gerenciamento de
+                                            Pisciculturas e com o melhor Custo X Benefício do mercado.
+                                        </p>
+
+                                    </div>
+                                </div> <!-- End off accordion item-1 -->
+
+                                <h6><i class="fa fa-angle-right"></i>QUEM SOMOS</h6>
+                                <div>
+                                    <div class="content">
+                                        <p>
+                                            Somos atualmente um grupo de apenas quatro estudantes da escola SENAI de Campinas
+                                            e formandos do curso Técnico em Informática.
+                                        </p>
+                                    </div>
+                                </div> <!-- End off accordion item-2 -->
+
+                                <h6> <i class="fa fa-angle-right"></i>NOSSO OBJETIVO</h6>
+                                <div>
+                                    <div class="content">
+                                        <p>
+                                            Desde o momento em que decidimos o nosso projeto, tinhamos uma ideia em comum,
+                                            tornar este um sistema mais simplificado e viável aos consumidores finais. A partir
+                                            deste conceito pretendemos revolucionar o mundo da Piscicultura, tornando o processo
+                                            administrativo muito mais simples e produtivo.
+
+                                        </p>
+                                    </div>
+                                </div> <!-- End off accordion item-3 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--End off row-->
+        </div><!--End off container -->
+        <br />
+        <br />
+        <br />
+        <br />
+        <hr />
+        <br />
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="about_bottom_content">
+                    <div class="col-md-4">
+                        <div class="about_bottom_item m-top-20">
+                            <div class="ab_head">
+                                <div class="ab_head_icon">
+                                    <i class="icofont icofont-fire-burn"></i>
+                                </div>
+                                <h6 class="m-top-20">PRATICIDADE</h6>
+                            </div>
+                            <p class="m-top-20">
+                                Buscamos ser simples e ágeis em tudo o que fazemos.
+                                A partir de alguns cadastros no sistema, já é possível
+                                ter um grande controle de sua Piscicultura.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="about_bottom_item m-top-20">
+                            <div class="ab_head">
+                                <div class="ab_head_icon">
+                                    <i class="icofont icofont-speech-comments"></i>
+                                </div>
+                                <h6 class="m-top-20">CONHECIMENTO</h6>
+                            </div>
+                            <p class="m-top-20">
+                                Além do sistema, também oferecemos um guia gratuito
+                                para ajudar em suas jornadas e buscas por informações
+                                dos mais diversos peixes.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="about_bottom_item m-top-20">
+                            <div class="ab_head">
+                                <div class="ab_head_icon">
+                                    <i class="icofont icofont-heart"></i>
+                                </div>
+                                <h6 class="m-top-20">ESTAMOS À DISPOSIÇÃO</h6>
+                            </div>
+                            <p class="m-top-20">
+                                Você não esta sozinho nesta jornada. Estamos aqui para
+                                ajudar com quaisquer dúvidas de utilização do sistema
+                                ou também se quiser dar apenas um "Oi".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--End off row-->
+        </div><!--End off container -->
+    </section> <!--End off About us section -->
+    <!--Separator section-->
+    <section id="video" class="video">
+        <div class="overlay"></div>
+        <div class="main_video roomy-100 m-top-100 m-bottom-100 text-center"></div>
+    </section><!--End off separator section -->
+    <!--What we do section-->
+    <div class="container">
+        <div id="our_job">
+            <div class="row">
+                <div class="main_featured m-top-100">
+                    <div class="col-sm-12">
+                        <div class="head_title text-center">
+                            <h2>O QUE FAZEMOS</h2>
+                            <div class="separator_auto"></div>
+                            <p>
+                                Buscamos trazer mais facilidade para os Psicicultores através deste sistema, para juntos revolucionar toda esta área.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--End of what we do section-->
+    <!--Slider section-->
+    <div class="featured_slider">
+        <div>
+            <div class="featured_img">
+                <img src="Images/img1.jpg" alt="" />
+            </div>
+        </div>
+        <div>
+            <div class="featured_img">
+                <img src="Images/img2.jpg" alt="" />
+            </div>
+        </div>
+        <div>
+            <div class="featured_img">
+                <img src="Images/img3.jpg" alt="" />
+            </div>
+        </div>
+        <div>
+            <div class="featured_img">
+                <img src="Images/img4.jpg" alt="" />
+            </div>
+        </div>
+        <div>
+            <div class="featured_img">
+                <img src="Images/img5.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <br /><!-- End off slider -->
+    <!--Service Section-->
+    <section id="service" class="service">
+        <div class="container">
+            <div class="row">
+                <div class="main_service roomy-100">
+                    <div class="head_title text-center">
+                        <h2>ATUALIZAÇÕES FUTURAS</h2>
+                        <div class="separator_auto"></div>
+                        <p>
+                            O sistema não para por aqui !! Juntando-se a nós você terá acesso a todas as atualizações futuras.<br />
+                            Olhe alguns de nossos planos e aguarde pela atualização.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service_item">
+                            <i class="icofont icofont-smart-phone"></i>
+                            <h6 class="m-top-30">APLICATIVO</h6>
+                            <div class="separator_small"></div>
+                            <p>
+                                Por que limitar-se a um computador não é mesmo?
+                                Acesse seus dados de onde quiser através do aplicativo
+                                para dispositivos móveis.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service_item">
+                            <i class="icofont icofont-attachment"></i>
+                            <h6 class="m-top-30">RELATÓRIO</h6>
+                            <div class="separator_small"></div>
+                            <p>
+                                Gere relatórios de rendimento, custos e previsões
+                                através da técnica de Machine Learning com gráficos.
+                                Não se preocupe, vai ser tão fácil quanto realizar um cadastro.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service_item">
+                            <i class="icofont icofont-clouds"></i>
+                            <h6 class="m-top-30">GEOLOCALIZAÇÃO</h6>
+                            <div class="separator_small"></div>
+                            <p>
+                                Saiba da previsão do tempo e abatedouros próximos
+                                a sua piscicultura através de um mapa interativo
+                                e fácil de usar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--End off row -->
+        </div><!--End off container -->
+    </section> <!--End off Featured section-->
+    <!--Guide section-->
+    <section id="guide" class="impress roomy-100">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="main_impress text-center">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <h2 class="text-white text-uppercase">GUIA</h2>
+                        <div class="separator_auto"></div>
+                        <p class="m-top-40 text-white">Clique e acesse o guia para iniciação na Produção de Peixes disponibilizado pela EMATER-DF </p>
+
+                        <div class="impress_btns m-top-30">
+                            <a href="http://www.emater.df.gov.br/wp-content/uploads/2018/06/na_pratica_criacao_peixes.pdf" class="btn btn-primary m-top-20">DOWNLOAD</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!--End off row -->
+        </div><!--End off container -->
+    </section><!-- End off Guide section-->
+    <!--Pricing Section-->
+
+    <!--Check if user is Logged In or not-->
+    @if (Session["Administrador"] == null && Session["User"] == null)
+    {
+
+        <section id="pricing" class="pricing lightbg">
+            <div class="container">
+                <div class="row">
+                    <div class="main_pricing roomy-100">
+                        <div class="col-md-8 col-md-offset-2 col-sm-12">
+                            <div class="head_title text-center">
+                                <h2>NOSSOS PLANOS</h2>
+                                <div class="separator_auto"></div>
+                                <p>Para poder ter uma melhor experiência com nosso sistema aconselhamos os usuários a 
+                                   escolher um dos planos disponiveis.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="pricing_item">
+                                <div class="pricing_head p-top-30 p-bottom-100 text-center">
+                                    <h3 class="text-uppercase">INICIANTE</h3>
+                                </div>
+                                <div class="pricing_price_border text-center">
+                                    <div class="pricing_price">
+                                        <h3 class="text-white">R$70</h3>
+                                        <p class="text-white">mensal</p>
+                                    </div>
+                                </div>
+
+                                <div class="pricing_body bg-white p-top-110 p-bottom-60">
+                                    <ul>
+                                        <li><i class="fa fa-check-circle text-primary"></i> <span>1</span> Cadastro de tanque</li>
+                                        <li><i class="fa fa-check-circle text-primary"></i> <span>3</span> Cadastro de rações </li>
+                                        <li><i class="fa fa-check-circle text-primary"></i> Cadastro de psicultura </li>
+                                        <li><i class="fa fa-check-circle text-primary"></i> Cadastro de tarefas </li>
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!-- End off col-md-4 -->
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="pricing_item sm-m-top-30">
+                                <div class="pricing_top_border"></div>
+                                <div class="pricing_head p-top-30 p-bottom-100 text-center">
+                                    <h3 class="text-uppercase">AVANÇADO</h3>
+                                </div>
+                                <div class="pricing_price_border text-center">
+                                    <div class="pricing_price">
+                                        <h3 class="text-white">R$100</h3>
+                                        <p class="text-white">mensal</p>
+                                    </div>
+                                </div>
+
+                                <div class="pricing_body bg-white p-top-110 p-bottom-60">
+                                    <ul>
+                                        <li><i class="fa fa-check-circle text-primary"></i> Plano de iniciante </li>
+                                        <li><i class="fa fa-check-circle text-primary"></i> <span>3</span> Cadastro de tanque</li>
+                                        <li><i class="fa fa-check-circle text-primary"></i> <span>5</span> Cadastro de rações</li>
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                    </ul>                                  
+                                </div>                                
+                            </div>
+                            <div class="pricing_btn text-center m-top-40">
+                                <a id="1" name="iniciante" href="@Url.Action("CadastraUsuario", "Usuario")" class="btn btn-primary">CONTRATAR</a>
+                            </div>
+                        </div><!-- End off col-md-4 -->
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="pricing_item sm-m-top-30">
+                                <div class="pricing_head p-top-30 p-bottom-100 text-center">
+                                    <h3 class="text-uppercase">PREMIUM</h3>
+                                </div>
+                                <div class="pricing_price_border text-center">
+                                    <div class="pricing_price">
+                                        <h3 class="text-white">R$130</h3>
+                                        <p class="text-white">mensal</p>
+                                    </div>
+                                </div>
+
+                                <div class="pricing_body bg-white p-top-110 p-bottom-60">
+                                    <ul>
+                                        <li><i class="fa fa-check-circle text-primary"></i> Plano de Avançado </li>
+                                        <li><i class="fa fa-check-circle text-primary"></i> Cadastro de tanque ilimitado</li>
+                                        <li><i class="fa fa-check-circle text-primary"></i> Cadastro de rações ilimitado</li>
+                                        <li><i class="fa fa-check-circle text-primary"></i> Biometria</li>
+                                        <li><i class="fa fa-check-circle text-primary"></i> Estoque de produtos</li>
+                                        <br />
+                                        
+                                    </ul>        
+                                    
+                                
+                                </div>
+                            </div>                      
+                        </div><!-- End off col-md-4 -->
+                    </div>
+                </div><!--End off row-->                
+            </div><!--End off container -->
+        </section> <!--End off Pricing section -->
+    }
+
+    <!--Contact Us Section-->
+    <section id="contact" class="contact bg-mega fix">
+        <div class="container">
+            <div class="row">
+                <div class="main_contact roomy-100 text-white">
+                    <div class="col-md-4">
+                        <div class="rage_widget">
+                            <div class="widget_head">
+                                <h3 class="text-white">Contate-nos</h3>
+                                <div class="separator_small"></div>
+                            </div>
+                            <p>
+                                Deseja conversar conosco?<br /><br />
+                                Envie-nos uma mensagem utilizando a caixa de mensagens ao lado
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--ENVIA MENSAGEM PARA O NOSSO CONTATO-->
+                    <div class="col-md-8 sm-m-top-30">
+                        @using (Html.BeginForm("Contato", "Home"))
+                        {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input id="nome" name="nome" type="text" placeholder="Nome" class="form-control" required="">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="mensagem" rows="6" placeholder="Mensagem"></textarea>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <input  type="submit" value="ENVIAR MENSAGEM" class="btn btn-primary">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div><!--End off row -->
+        </div><!--End off container -->
+    </section><!--End off Contact Section-->
+</div>
+
+
+}
+
+@section Script{
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            if ('@TempData["Msg"]' != "") {
+
+                swal('@TempData["Msg"]');
+
+            }else{}
+        });
+
+    </script>
+}
+

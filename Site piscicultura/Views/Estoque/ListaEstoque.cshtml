@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Site_piscicultura.Models.ModeloEstoque>
+
+@{
+    ViewBag.Title = "ListaEstoque";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Container{
+
+<div class="background-register">
+
+    <div class="panel panel-default">
+
+        <div class="main-title">
+
+            Listar Estoque
+
+        </div>
+
+        <div class="panel-body">
+
+            <div class="formatted-table">
+
+                <div class="border-list">
+
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Quantidade)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Produto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Categoria)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Validade)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Quantidade)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Produto)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Categoria)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Validade)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "EditarEstoque", new { id = item.Id }) |
+                                    @Html.ActionLink("Deletar", "Remover", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+

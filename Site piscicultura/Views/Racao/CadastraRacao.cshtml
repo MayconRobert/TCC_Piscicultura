@@ -1,0 +1,125 @@
+﻿@model Site_piscicultura.Models.ModeloRacao
+
+@{
+    ViewBag.Title = "CadastraRacao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Container{
+
+<link href="../../Content/sweetalert2.min.css" rel="stylesheet" />
+
+<script src="../../Scripts/sweetalert2.all.min.js"></script>
+
+<div class="background-register">
+
+    <div class="panel panel-default">
+
+        <div class="main-title">
+
+            Registrar Ração
+
+        </div>
+
+        <hr />
+
+        <div class="panel-body">
+
+            <div class="formatted-form">
+
+                <div class="border">
+
+                    @using (Html.BeginForm())
+    {
+                        @Html.AntiForgeryToken()
+
+
+                        <div class="form-horizontal">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nome da Ração" } })
+                                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Fabricante, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Fabricante, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Fabricante, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Peso, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Peso, new { htmlAttributes = new { @class = "form-control", @placeholder = "Peso do Pacote" } })
+                                    @Html.ValidationMessageFor(model => model.Peso, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Tamanho, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Tamanho, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tamanho da Ração em cm" } })
+                                    @Html.ValidationMessageFor(model => model.Tamanho, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Proteina, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Proteina, new { htmlAttributes = new { @class = "form-control", @placeholder = "Quantidade de Proteína" } })
+                                    @Html.ValidationMessageFor(model => model.Proteina, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.IngredientePrincipal, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.IngredientePrincipal, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.IngredientePrincipal, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TipoRacao, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.TipoRacao, new { htmlAttributes = new { @class = "form-control", @placeholder = "Extrusado, Em pó, Peletizado, etc..." } })
+                                    @Html.ValidationMessageFor(model => model.TipoRacao, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Cadastrar" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @Html.ActionLink("Voltar", "MenuRacao")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+}
+@section Script{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            if ('@TempData["Msg"]' != "") {
+
+                swal('@TempData["Msg"]');
+
+            } else { }
+        });
+
+    </script>
+
+}

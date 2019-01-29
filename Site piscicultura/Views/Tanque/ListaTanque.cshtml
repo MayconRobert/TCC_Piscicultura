@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Site_piscicultura.Models.ModeloTanque>
+
+@{
+    ViewBag.Title = "ListaTanque";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Container{
+
+<script src="~/Scripts/main.js"></script>
+
+<div class="background-register">
+
+    <div class="panel panel-default">
+
+        <div class="main-title">
+
+            Tanques Cadastrados
+
+        </div>
+
+        <div class="panel-body">
+
+            <div class="formatted-table">
+
+                <div class="border-list">
+
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.QuantidadePeixes)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.VolumeAgua)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.TipoAgua)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NomePiscultura)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Racao)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EspeciePeixe)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.QuantidadePeixes)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VolumeAgua)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TipoAgua)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NomePiscultura)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Racao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EspeciePeixe)
+                                </td>
+
+
+                                <td>
+                                    @Html.ActionLink("Editar", "EditarTanque", new { id = item.Id }) |
+                                    @Html.ActionLink("Deletar", "ExcluirTanque", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    </div>
+                @Html.ActionLink("Voltar", "MenuTanque")
+            </div>            
+        </div>
+    </div>
+</div>
+}
+
+

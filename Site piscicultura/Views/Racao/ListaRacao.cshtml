@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Site_piscicultura.Models.ModeloRacao>
+
+@{
+    ViewBag.Title = "ListaRacao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Container{
+
+<link href="../../Content/sweetalert2.min.css" rel="stylesheet" />
+
+<script src="../../Scripts/sweetalert2.all.min.js"></script>
+
+<div class="background-register">
+
+    <div class="panel panel-default">
+
+        <div class="main-title">
+
+            Rações Cadastradas
+        </div>
+
+        <div class="panel-body">
+
+            <div class="formatted-table">
+
+                <div class="border-list">
+
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fabricante)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Peso)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Tamanho)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Proteina)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IngredientePrincipal)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TipoRacao)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fabricante)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Peso)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tamanho)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Proteina)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IngredientePrincipal)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TipoRacao)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "EditarRacao", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "Remover", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    </div>
+                    @Html.ActionLink("Voltar", "MenuRacao")
+                </div>            
+        </div>
+    </div>
+</div>
+}
+@section Script{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            if ('@TempData["Msg"]' != "") {
+
+                swal('@TempData["Msg"]');
+
+            } else { }
+        });
+
+    </script>
+
+}

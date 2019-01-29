@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Container{
+
+<link href="../../Content/sweetalert2.min.css" rel="stylesheet" />
+
+<script src="../../Scripts/sweetalert2.all.min.js"></script>
+
+<div class="background-menu">
+
+    <div class="panel panel-default">
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-info btn-xl" onclick="location.href='@Url.Action("MenuPiscicultura","Piscicultura")' ">
+                <i class="fas fa-map-marker-alt fa-2x"></i>
+                <br />
+                Local
+            </button>
+            <button type="button" class="btn btn-success btn-xl" onclick="location.href='@Url.Action("Peixes","Peixe")' ">
+                <i class="fas fa-fish fa-2x"></i>
+                <br />
+                Peixes
+            </button>
+            <button type="button" class="btn btn-danger btn-xl" onclick="location.href='@Url.Action("Tarefas","Tarefa")' ">
+                <i class="fas fa-calendar-alt fa-2x"></i>
+                <br />
+                Tarefas
+            </button>
+            <button type="button" class="btn btn-warning btn-xl" onclick="location.href='@Url.Action("MenuUsuario","Usuario")' ">
+                <i class="fas fa-user fa-2x"></i>
+                <br />
+                Usuario
+            </button>
+            <br />
+            <br />
+            <br />
+            <button type="button" class="btn btn-danger btn-xl" onclick="location.href='@Url.Action("MenuEstoque","Estoque")' ">
+                <i class="fas fa-box fa-2x"></i>
+                <br />
+                Estoque
+            </button>
+            <button type="button" class="btn btn-warning btn-xl" onclick="location.href='@Url.Action("MenuBiometria","Biometria")' ">
+                <i class="fas fa-clipboard fa-2x"></i>
+                <br />
+                Biometria
+            </button>
+            <button type="button" class="btn btn-info btn-xl" onclick="location.href='@Url.Action("MenuTanque","Tanque")' ">
+                <i class="fas fa-tint fa-2x"></i>
+                <br />
+                Tanques
+            </button>
+            <button type="button" class="btn btn-success btn-xl" onclick="location.href='@Url.Action("MenuRacao","Racao")' ">
+                <i class="fas fa-filter fa-2x"></i>
+                <br />
+                Rações
+            </button>
+        </div>
+    </div>
+    </div>
+    <!-- /.panel-body -->
+
+
+
+    <style>
+        .btn-xl {
+            width: 280px;
+            height: 350px;
+            padding: 10px 16px;
+            border-radius: 35px;
+            font-size: 24px;
+            line-height: 1.33;
+            margin-left: 150px;
+        }
+    </style>
+
+}
+
+@section Script{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            if ('@TempData["Msg"]' != "") {
+
+                Swal({
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'Login realizado com sucesso',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
+            } else { }
+        });
+
+    </script>
+
+}

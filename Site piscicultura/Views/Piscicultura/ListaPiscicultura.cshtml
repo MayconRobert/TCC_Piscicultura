@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Site_piscicultura.Models.ModeloPiscicultura>
+
+@{
+    ViewBag.Title = "ListaPiscicultura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["Msg"] != null)
+{
+    if (TempData["Msg"].ToString().IndexOf("sucesso") > 0)
+    {
+        <div id="Esconder" style="text-align:center; background-color: aquamarine"> @TempData["Msg"] </div>
+    }
+    else
+    {
+        <div id="Esconder" style="text-align:center; background-color: orangered"> @TempData["Msg"] </div>
+    }
+}
+@section Container{
+
+<div class="background-register">
+
+    <div class="panel panel-default">
+
+        <div class="main-title">
+
+            Lista das Pisciculturas
+
+        </div>
+
+        <div class="panel-body">
+
+            <div class="formatted-table">
+
+                <div class="border-list">
+
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cpf_usuario)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Qtd_Tanques)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Local)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Clima)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TamanhoLocal)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cpf_usuario)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Qtd_Tanques)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Local)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Clima)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TamanhoLocal)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "EditarPiscicultura", new { id = item.Id }) |
+                                    @Html.ActionLink("Excluir", "DeletarPiscicultura", new { id = item.Id }) |
+                                    @*Texto, Nome da Action, Nome do controller, Parametro e atributos do html*@
+
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                @Html.ActionLink("Voltar", "MenuPiscicultura")
+            </div>
+        </div>
+                
+    </div>
+ </div>
+}
+@section Script{
+    <script>
+        $(document).ready(function () {
+            $('#Esconder').delay(5000).fadeOut();
+        });
+    </script>
+
+}

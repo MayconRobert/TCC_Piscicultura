@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Site_piscicultura.Models.ModeloBiometria>
+
+@{
+    ViewBag.Title = "ListaBiometria";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Container{
+
+<div class="background-register">
+
+    <div class="panel panel-default">
+
+        <div class="main-title">
+
+            Listar Biometria
+
+        </div>
+
+        <div class="formatted-table">
+
+            <div class="border-list">
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Qtd_peixesTanque)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Qtd_peixesAmostra)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Peso_Amostra)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Peso_Medio)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Ganho_PesoAmostra)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Ganho_PesoMedio)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Data)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Id_Tanque)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Qtd_peixesTanque)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Qtd_peixesAmostra)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Peso_Amostra)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Peso_Medio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ganho_PesoAmostra)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ganho_PesoMedio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Data)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id_Tanque)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Deletar", "Remover", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        @Html.ActionLink("Voltar", "MenuBiometria")
+        </div>
+    </div>
+</div>
+}

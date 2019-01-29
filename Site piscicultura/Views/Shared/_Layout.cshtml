@@ -1,0 +1,231 @@
+﻿<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    
+    <head>
+        <meta charset="utf-8">
+        
+        <title >Piscium Culture - Seu Novo Sistema de Pisciculturas</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="~/Images/favicon.png">
+
+
+        <script src="../../Scripts/vendor/jquery-1.11.2.min.js"></script>
+        <script src="~/Scripts/vendor/bootstrap.min.js"></script>
+        <script src="~/Scripts/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="~/Scripts/bootsnav.js"></script>
+        <script src="~/Scripts/gmaps.min.js"></script>
+        <script src="~/Scripts/jquery.collapse.js"></script>
+        <script src="~/Scripts/jquery.easing.1.3.js"></script>
+        <script src="../Scripts/main.js"></script>
+        <script src="~/Scripts/jquery.magnific-popup.js"></script>
+        <script src="~/Scripts/plugins.js"></script>
+        <script src="~/Scripts/slick.min.js"></script>
+        <script src="~/Scripts/jquery.mask.js"></script>
+        <script src="~/Scripts/jquery.mask.min.js"></script>
+
+
+        @RenderSection("Scripts", false)   
+
+        
+
+        <style>
+            body {
+                margin: 40px 10px;
+                padding: 0;
+                font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+                font-size: 14px;
+            }
+
+            #calendar {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+        </style>
+
+
+        <!--Google Font link-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+        <link href="~/Content/animate.css" rel="stylesheet" />
+        <link href="~/Content/bootsnav.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Content/fonticons.css" rel="stylesheet" />
+        <link href="~/Content/magnific-popup.css" rel="stylesheet" />
+        <link href="~/Content/responsive.css" rel="stylesheet" />
+        <link href="~/Content/slick-theme.css" rel="stylesheet" />
+        <link href="~/Content/slick.css" rel="stylesheet" />
+        <link href="~/Content/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/Content/icofont/icofont.min.css">
+   
+
+        <!--For Plugins external css-->
+        <!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="../../Content/style.css">
+        <!--<link rel="stylesheet" href="assets/css/colors/maron.css">-->
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="../../Content/responsive.css" />
+
+    </head>
+
+    <!--Carrega o corpo do Layout-->
+    @RenderBody()
+
+    <body data-spy="scroll" data-target=".navbar-collapse">
+
+
+        <!-- Preloader -->
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="object" id="object_one"></div>
+                    <div class="object" id="object_two"></div>
+                    <div class="object" id="object_three"></div>
+                    <div class="object" id="object_four"></div>
+                </div>
+            </div>
+        </div><!--End off Preloader -->
+
+
+        <div class="wrapper">
+
+            <!--CHECK IF USER IS NOT LOGGED / LOADS THE UNLOGGED MENU-->
+           @if (Session["Administrador"] == null && Session["User"] == null)
+           {
+               <nav class="navbar navbar - default navbar-fixed white no-background bootsnav">
+
+                <div class="container">
+
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+
+                            <img src="~/Images/logo.png" class="logo logo-display m-top-10" alt="">
+                            <img src="~/Images/logo.png" class="logo logo-scrolled" alt="">
+
+                        </a>
+                    </div>
+
+                    <!-- End Header Navigation -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+
+                    
+
+                        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                            
+                                <li><a href="#hello">Home</a></li>
+                                <li><a href="#about">Sobre Nós</a></li>
+                                <li><a href="#our_job">Nosso Trabalho</a></li>
+                                <li><a href="#guide">Guia</a></li>
+
+                                <li><a href="#pricing">Planos</a></li>
+                                <li><a href="#contact">Contato</a></li>
+
+                                <!--Login Dropdown-->
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="menudrop"></span> Login</a>
+                                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+                                        <form action="~/Logar/Logar" class="form-horizontal" method="post" accept-charset="UTF-8">
+                                            <input id="sp_uname" class="form-control login" type="text" name="nomeUsuario" placeholder="Usuario" />
+                                            <br />
+                                            <input id="sp_pass" class="form-control login" type="password" name="senha" placeholder="Senha" />
+                                            <br />
+                                            <input class="btn btn-primary" type="submit" name="Login" value="login" />
+                                            <br />
+                                            <a href="@Url.Action("RecuperarSenha", "Logar")"><span>Recuperar Senha?</span></a>
+                                        </form>
+                                    </div>
+                                </li>
+                                <!--END OF LOGIN DROPDOWN-->
+
+                        </ul>
+                    
+
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </nav>
+
+           }
+           else
+           {
+
+            <!--LOADS THE MENU IF USER IS LOGGED IN-->
+
+            <nav class="navbar navbar - default navbar-fixed white bootsnav">
+
+                <div class="container">
+
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+
+                            <img src="~/Images/logo.png" class="logo logo-display m-top-10">
+                            <img src="~/Images/logo.png" class="logo logo-scrolled">
+
+                        </a>
+                    </div>
+
+                    <!-- End Header Navigation -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+
+
+
+                        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+
+                            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                            <li><a href="@Url.Action("Menu", "Home")">Menu</a></li>
+                            <li><a href="@Url.Action("Sair", "Logar")">Sair</a></li>
+
+                        </ul>
+                        
+
+                    </div><!-- /.navbar-collapse -->
+                </div>
+            </nav>
+
+           }<!--END OF ELSE-->
+
+        </div><!--END OF WRAPPER-->
+
+        <div class="injection">
+            <!--CARREGA O CONTEÚDO DO PAGINA-->
+            @RenderSection("Container", false)
+        </div>
+        
+            <!--Footer section-->
+            <div id="footer" class="footer bg-black ">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_footer text-center p-top-40 p-bottom-30">
+                            <p class="wow fadeInRight" data-wow-duration="3s">
+                                Powered by Senai Zerbini
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--Footer section-->
+
+            @*<script src="assets/js/plugins.js"></script>
+            <script src="assets/js/main.js"></script>*@
+        @RenderSection("Script", required: false)
+    </body>
+</html>
